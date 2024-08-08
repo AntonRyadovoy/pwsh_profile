@@ -5,15 +5,15 @@
 
 ___
 
-![nord v 1](https://github.com/AntonRyadovoy/pwsh_profile/assets/131811768/cce0d2eb-77dd-4102-97a9-1260c72a5e11)
+![nordv1](https://github.com/user-attachments/assets/e00055d3-b51f-4a9a-b193-b8de575057e9)
 
 ### "nordcustom_v.2.omp.json" theme always dispaying current folder only (without full path).
 
 ___
 
-![nord v 2](https://github.com/AntonRyadovoy/pwsh_profile/assets/131811768/1f28e47f-a7a6-4a42-ba8e-ff9ade3eb4d5)
+![nordv2](https://github.com/user-attachments/assets/0bfac451-0d88-4c4e-a57e-68659a0f1337)
 
----
+___
 
 ### "nordcustom_v.3.yaml" this theme can be customized by removing comments inside.
 
