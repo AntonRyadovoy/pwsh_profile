@@ -1,101 +1,95 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-
-version: 2
-final_space: true
 blocks:
-- type: prompt
-  alignment: left
-  segments:
-  - type: session
-    style: plain
-    foreground: p:nord-13
-    template: " \u256d\u2500<#BF616A>[<#88C0D0>󰔶</> </>{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }}<#BF616A>]</> "
-    #SHELL
-  #- type: shell
-  #  style: plain
-  #  foreground: p:nord-12
-  #  template: " \U000f0a0a {{ .Name }} "
-  - type: spotify
-    style: plain
-    foreground: p:nord-14
-    template: "{{ .Icon }}{{ if ne .Status \"stopped\" }}{{ .Artist }} - {{ .Track }}{{ end }}"
-    properties:
-      playing_icon: "\U000f04c7 "
-  - type: path
-    style: plain
-    foreground: p:nord-15
-    properties:
-      folder_icon: 
-      folder_separator_icon: " / "
-      home_icon: 󰋜
-      max_depth: 2
-      style: agnoster_short
-      #EXECUTIONTIME
-  #- type: executiontime
-  #  style: plain
-  #  foreground: p:nord-10
-  #  template: " <#5E81AC>\U000f1453</> {{ .FormattedMs }} "
-  #  properties:
-  #    always_enabled: true
-  #    style: austin
-  #    threshold: 500
-  - type: status
-    style: plain
-    foreground: p:nord-14
-    foreground_templates:
-    - "{{ if gt .Code 0 }}red{{ end }}"
-    template: " {{ if gt .Code 0 }}✘ {{ else }}\U000f0e1e {{ end }}{{ if eq ( gt .Code 0 ) .Segments.Path.Writable}} {{ end }}"
-    properties:
-      always_enabled: true
-- type: prompt
-  alignment: right
-  segments:
-  - type: git
-    style: plain
-    foreground: p:nord-13
-    template: "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \U000f0193 {{ .StashCount }}{{ end }}"
-    properties:
-      branch_icon: "\ue725 "
-      fetch_stash_count: true
-      fetch_status: true
-      fetch_upstream_icon: true
-      fetch_worktree_count: true
-  - type: time
-    style: plain
-    foreground: p:nord-7
-    template: " {{ .CurrentDate | date .Format }} "
-    properties:
-      time_format: Mon | 15:04
-  - type: battery
-    style: plain
-    foreground: p:nord-12
-    background_templates:
-    - "{{if eq \"Charging\" .State.String }}p:green{{end}}"
-    - "{{if eq \"Discharging\" .State.String}}p:orange{{end}}"
-    template: " {{ .Percentage}}\U000f03f0 {{.Templates }} </>"
-    templates:
-    - "{{if eq \"Discharging\" .State.String}}{{if lt .Percentage 11}}\U000f007a{{else if lt .Percentage 21}}\U000f007b{{else if lt .Percentage 31}}\U000f007c{{else if lt .Percentage 41}}\U000f007d{{else if lt .Percentage 51}}\U000f007e{{else if lt .Percentage 61}}\U000f007e{{else if lt .Percentage 71}}\U000f0080{{else if lt .Percentage 81}}\U000f0081{{else if lt .Percentage 91}}\U000f0082{{else}}\U000f0079{{end}}{{end}}"
-    - "{{if eq \"Charging\" .State.String}}{{ if lt .Percentage 21}}\U000f0086{{else if lt .Percentage 31}}\U000f0087{{else if lt .Percentage 41}}\U000f0088{{else if lt .Percentage 61}}\U000f0089{{else if lt .Percentage 81}}\U000f008a{{else if lt .Percentage 91}}\U000f008b{{else}}\U000f0084{{end}}{{end}}"
-    templates_logic: first_match
-    properties:
-      charged_icon: 󰂄
-      charging_icon: 󰂄
-      discharging_icon: 󰁹
-      #RAM
-  #- type: sysinfo
-  #  style: plain
-  #  foreground: p:nord-12
-  #  template: " \ue266 {{ round .PhysicalPercentUsed .Precision }}%"
-  #  properties:
-  #    precision: 2
-- type: prompt
-  alignment: left
-  segments:
-  - type: text
-    style: plain
-    foreground: p:nord-8
-    template: " <#EBCB8B>\u2570\u2500</><#A3BE8C>\U000f0b6f</><#EBCB8B>\U000f0b6f</><#D08770>\U000f0b6f</> 󰅂 "
-  newline: true
+  - type: prompt
+    alignment: left
+    segments:
+      - type: session 
+        foreground: p:nord-13
+        style: plain
+        template: " \u256d\u2500<#BF616A>[<#88C0D0>󰔶</> </>{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }}<#BF616A>]</> "
+      #- type: shell
+        #style: plain
+        #foreground: p:nord-12
+        #template: " \U000f0a0a {{ .Name }} "
+      - type: spotify
+        style: plain
+        foreground: p:nord-14
+        template: "{{ .Icon }}{{ if ne .Status \"stopped\" }}{{ .Artist }} - {{ .Track }}{{ end }}"
+        properties:
+         playing_icon: "\U000f04c7 "
+      - type: path
+        style: plain
+        foreground: p:nord-15
+        properties:
+          folder_icon: 
+          folder_separator_icon: " / "
+          home_icon: 󰋜
+          max_depth: 2
+          style: agnoster_short
+      #- type: executiontime
+        #foreground: p:nord-10
+        #template: " <#5E81AC>\U000f1453</> {{ .FormattedMs }} "
+        #properties:
+          #always_enabled: true
+          #style: austin
+          #threshold: 500
+      - type: status
+        style: plain
+        foreground: p:nord-14
+        foreground_templates:
+        - "{{ if gt .Code 0 }}red{{ end }}"
+        template: " {{ if gt .Code 0 }}✘ {{ else }}\U000f0e1e {{ end }}{{ if eq ( gt .Code 0 ) .Segments.Path.Writable}} {{ end }}"
+        properties:
+          always_enabled: true
+  - type: prompt
+    alignment: right
+    segments:
+      - type: git
+        style: plain
+        foreground: p:nord-13
+        template: "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \U000f0193 {{ .StashCount }}{{ end }}"
+        properties:
+          branch_icon: "\ue725 "
+          fetch_stash_count: true
+          fetch_status: true
+          fetch_upstream_icon: true
+          fetch_worktree_count: true
+      - type: time
+        style: plain
+        foreground: p:nord-7
+        template: " {{ .CurrentDate | date .Format }} "
+        properties:
+          time_format: Mon | 15:04
+      - type: battery
+        style: plain
+        foreground: p:nord-12
+        background_templates:
+          - "{{if eq \"Charging\" .State.String }}p:green{{end}}"
+          - "{{if eq \"Discharging\" .State.String}}p:orange{{end}}"
+        template: " {{ .Percentage}}\U000f03f0 {{.Templates }} </>"
+        templates:
+        - "{{if eq \"Discharging\" .State.String}}{{if lt .Percentage 11}}\U000f007a{{else if lt .Percentage 21}}\U000f007b{{else if lt .Percentage 31}}\U000f007c{{else if lt .Percentage 41}}\U000f007d{{else if lt .Percentage 51}}\U000f007e{{else if lt .Percentage 61}}\U000f007e{{else if lt .Percentage 71}}\U000f0080{{else if lt .Percentage 81}}\U000f0081{{else if lt .Percentage 91}}\U000f0082{{else}}\U000f0079{{end}}{{end}}"
+        - "{{if eq \"Charging\" .State.String}}{{ if lt .Percentage 21}}\U000f0086{{else if lt .Percentage 31}}\U000f0087{{else if lt .Percentage 41}}\U000f0088{{else if lt .Percentage 61}}\U000f0089{{else if lt .Percentage 81}}\U000f008a{{else if lt .Percentage 91}}\U000f008b{{else}}\U000f0084{{end}}{{end}}"
+        templates_logic: first_match
+        properties:
+          charged_icon: 󰂄
+          charging_icon: 󰂄
+          discharging_icon: 󰁹
+      #- type: sysinfo
+         #style: plain
+         #foreground: p:nord-12
+         #template: " \ue266 {{ round .PhysicalPercentUsed .Precision }}%"
+         #properties:
+            #precision: 2
+  - type: prompt
+    alignment: left
+    newline: true
+    segments:
+      - type: text
+        style: plain
+        foreground: p:nord-8
+        template: " <#EBCB8B>\u2570\u2500</><#A3BE8C>\U000f0b6f</><#EBCB8B>\U000f0b6f</><#D08770>\U000f0b6f</> 󰅂 "
+
 palette:
   #Polar Night
   nord-0: "#2E3440" 
@@ -117,3 +111,5 @@ palette:
   nord-13: "#EBCB8B"
   nord-14: "#A3BE8C"
   nord-15: "#B48EAD"
+
+version: 2
