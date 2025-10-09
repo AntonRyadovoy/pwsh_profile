@@ -26,5 +26,10 @@ ___
 ![everforest](https://github.com/user-attachments/assets/7e100fdb-03aa-4b07-91e8-a8d6e977b26b)
 
 
+___
+
+### "gruvboxcustom.omp.json" gruvbox theme
+
+![gruvbox](https://github.com/user-attachments/assets/974eb869-0e44-4b64-8eb8-7904e97e9e91)
 
 
